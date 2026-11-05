@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANIK Gaming Zone</title>
+<meta name="description" content="ANIK Gaming Zone — Free Fire Sniper Player">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 0%, #331000, #090909 35%, #020202 75%);
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .18;
+    background-image:
+        linear-gradient(#ff5a0015 1px, transparent 1px),
+        linear-gradient(90deg, #ff5a0015 1px, transparent 1px);
+    background-size: 35px 35px;
+}
+
+header {
+    text-align: center;
+    padding: 65px 20px 95px;
+    background: linear-gradient(135deg, #100300, #3b0d00, #110300);
+    border-bottom: 2px solid #ff4d00;
+    box-shadow: 0 10px 50px #ff450055;
+}
+
+.badge {
+    display: inline-block;
+    padding: 9px 20px;
+    border: 1px solid #ff7100;
+    border-radius: 50px;
+    color: #ff9d00;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+h1 {
+    margin-top: 18px;
+    font-size: clamp(50px, 15vw, 90px);
+    font-weight: 1000;
+    letter-spacing: 8px;
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 15px #ff4d00, 0 0 35px #ff2600;
+}
+
+header p {
+    margin-top: 10px;
+    color: #aaa;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.profile {
+    text-align: center;
+    margin-top: -65px;
+}
+
+.freefire-logo {
+    width: 130px;
+    height: 130px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffb300, #ff4d00 45%, #100300);
+    border: 4px solid #ff7100;
+    box-shadow: 0 0 15px #ff6500, 0 0 35px #ff4500;
+}
+
+.freefire-logo span {
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.freefire-logo b {
+    font-size: 29px;
+    letter-spacing: 3px;
+}
+
+.freefire-logo small {
+    font-size: 17px;
+}
+
+.online {
+    display: block;
+    width: max-content;
+    margin: 13px auto;
+    padding: 7px 17px;
+    border: 1px solid #00ff88;
+    border-radius: 50px;
+    background: #001b10;
+    color: #00ff88;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.card {
+    width: 92%;
+    max-width: 720px;
+    margin: 24px auto;
+    padding: 23px;
+    background: linear-gradient(145deg, #111, #070707);
+    border: 1px solid #ff550044;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px #000;
+}
+
+.card h2 {
+    color: #ff8500;
+    margin-bottom: 13px;
+    font-size: 20px;
+}
+
+.card p {
+    color: #bbb;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.fire {
+    color: #ff7600;
+    font-weight: bold;
+}
+
+.uid {
+    display: inline-block;
+    margin-top: 17px;
+    padding: 12px 17px;
+    background: #050505;
+    border: 1px solid #ff6500;
+    border-radius: 10px;
+    color: #ff9d00;
+    font-weight: bold;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat {
+    padding: 20px 8px;
+    text-align: center;
+    background: #090909;
+    border: 1px solid #252525;
+    border-radius: 13px;
+    transition: .25s;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    border-color: #ff6500;
+    box-shadow: 0 0 20px #ff500033;
+}
+
+.stat strong {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.stat span {
+    color: #888;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.game-banner {
+    margin-top: 18px;
+    padding: 25px 15px;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid #ff6500;
+    background: linear-gradient(135deg, #220700, #090909, #220700);
+}
+
+.game-banner .icon {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.game-banner h3 {
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.game-banner p {
+    margin-top: 6px;
+    color: #777;
+}
+
+.buttons {
+    display: grid;
+    gap: 12px;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+}
+
+.whatsapp {
+    background: #087f43;
+    border: 1px solid #16d878;
+}
+
+.tiktok {
+    background: #080808;
+    border: 1px solid #777;
+}
+
+.facebook {
+    background: #075dcc;
+    border: 1px solid #3989ff;
+}
+
+.video {
+    background: linear-gradient(135deg, #ff2500, #ff8c00);
+    border: 1px solid #ffb000;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    margin-top: 35px;
+    background: #020202;
+    border-top: 1px solid #222;
+    color: #666;
+    font-size: 12px;
+}
+
+footer .fire {
+    color: #ff7600;
+}
+
+#topBtn {
+    position: fixed;
+    z-index: 20;
+    right: 18px;
+    bottom: 18px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #ff9d00;
+    border-radius: 50%;
+    background: #170600;
+    color: #ff9d00;
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+
+@media(max-width:480px) {
+    header {
+        padding: 55px 15px 90px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .stats {
+        gap: 6px;
+    }
+
+    .stat {
+        padding: 17px 5px;
+    }
+
+    .freefire-logo {
+        width: 115px;
+        height: 115px;
+    }
+
+    h1 {
+        letter-spacing: 5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="badge">🔥 ANIK GAMING ZONE</div>
+    <h1>ANIK</h1>
+    <p>FREE FIRE • SNIPER • GAMING</p>
+</header>
+
+<main id="main">
+
+<div class="profile">
+    <div class="freefire-logo">
+        <span>FREE</span>
+        <b>FIRE</b>
+        <small>🔥</small>
+    </div>
+
+    <span class="online">● GAMER ONLINE</span>
+</div>
+
+<section class="card">
+    <h2>🎯 ABOUT ME</h2>
+    <p>
+        আসসালামু আলাইকুম! আমি
+        <span class="fire">ANIK</span>।
+        আমি একজন Free Fire Sniper Player।
+        আমার Gaming World-এ তোমাকে স্বাগতম। 🔥
+    </p>
+
+    <div class="uid">🎮 UID: 2004303335</div>
+</section>
+
+<section class="card">
+    <h2>🏆 PLAYER STATS</h2>
+
+    <div class="stats">
+        <div class="stat">
+            <strong>🎯</strong>
+            <span>SNIPER</span>
+        </div>
+
+        <div class="stat">
+            <strong>🔥</strong>
+            <span>FREE FIRE</span>
+        </div>
+
+        <div class="stat">
+            <strong>⚡</strong>
+            <span>GAMER</span>
+        </div>
+    </div>
+</section>
+
+<section class="card">
+    <h2>🎮 GAMING PROFILE</h2>
+
+    <div class="game-banner">
+        <div class="icon">🔥</div>
+        <h3>FREE FIRE</h3>
+        <p>SNIPER PLAYER • GAMING ZONE</p>
+    </div>
+</section>
+
+<section class="card">
+    <h2>📱 CONTACT &amp; SOCIAL</h2>
+
+    <div class="buttons">
+        <a class="button whatsapp"
+           href="https://wa.me/8801895232858"
+           target="_blank">
+           📱 WhatsApp
+        </a>
+
+        <a class="button tiktok"
+           href="https://www.tiktok.com/@karmokranik"
+           target="_blank">
+           🎵 TikTok — Main
+        </a>
+
+        <a class="button tiktok"
+           href="https://www.tiktok.com/@_anikkarmokar3"
+           target="_blank">
+           🎵 TikTok — Second
+        </a>
+
+        <a class="button facebook"
+           href="https://www.facebook.com/share/1HiiLafT7j/"
+           target="_blank">
+           🥶 Facebook
+        </a>
+
+        <a class="button video"
+           href="https://vt.tiktok.com/ZSV1ynr8m/"
+           target="_blank">
+           🎬 আমার TikTok ভিডিও
+        </a>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    © 2026 <span class="fire">ANIK Gaming</span>
+    <div style="margin-top:10px;">
+        FREE FIRE SNIPER PLAYER 🔥
+    </div>
+</footer>
+
+<button id="topBtn" type="button" aria-label="Back to top">
+    ↑
+</button>
+
+<script>
+(function() {
+    const btn = document.getElementById('topBtn');
+
+    function onScroll() {
+        btn.style.display =
+            window.scrollY > 200 ? 'block' : 'none';
+    }
+
+    btn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    window.addEventListener('scroll', onScroll, {
+        passive: true
+    });
+
+    onScroll();
+})();
+</script>
+
+</body>
+</html>
